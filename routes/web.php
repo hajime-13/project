@@ -41,11 +41,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
     // Menu (CRUD)
-    Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
-    Route::post('/menus', [MenuController::class, 'store'])->name('menus.store');
-    Route::get('/menus/{menu}/edit', [MenuController::class, 'edit'])->name('menus.edit');
-    Route::put('/menus/{menu}', [MenuController::class, 'update'])->name('menus.update');
-    Route::delete('/menus/{menu}', [MenuController::class, 'destroy'])->name('menus.destroy');
+    Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
+    Route::post('/menu', [MenuController::class, 'store'])->name('menu.store');
+    Route::get('/menu/{menu}/edit', [MenuController::class, 'edit'])->name('menu.edit');
+    Route::put('/menu/{menu}', [MenuController::class, 'update'])->name('menu.update');
+    Route::delete('/menu/{menu}', [MenuController::class, 'destroy'])->name('menu.destroy');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
