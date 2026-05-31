@@ -225,6 +225,9 @@
             <a href="{{ route('users.index') }}" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
                 <i class="bi bi-people"></i> Users
             </a>
+            <a href="{{ route('menus.index') }}" class="nav-link {{ request()->routeIs('menus.*') ? 'active' : '' }}">
+                <i class="bi bi-journal-text"></i> Menu
+            </a>
             <a href="{{ route('orders.index') }}" class="nav-link {{ request()->routeIs('orders.*') ? 'active' : '' }}">
                 <i class="bi bi-cart3"></i> Orders
             </a>
