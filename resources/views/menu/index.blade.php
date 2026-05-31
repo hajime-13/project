@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($menus as $menu)
+                    @forelse($menu as $menu)
                     <tr>
                         <td class="text-muted">{{ $loop->iteration }}</td>
                         <td class="fw-medium">{{ $menu->name }}</td>
@@ -46,10 +46,10 @@
                         </td>
                         <td class="text-muted">{{ $menu->created_at->format('M d, Y') }}</td>
                         <td class="text-end">
-                            <a href="{{ route('menus.edit', $menu) }}" class="btn btn-sm btn-outline-secondary me-1">
+                            <a href="{{ route('menu.edit', $menu) }}" class="btn btn-sm btn-outline-secondary me-1">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <form method="POST" action="{{ route('menus.destroy', $menu) }}" class="d-inline"
+                            <form method="POST" action="{{ route('menu.destroy', $menu) }}" class="d-inline"
                                   onsubmit="return confirm('Remove {{ addslashes($menu->name) }} from menu?')">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger">
@@ -75,7 +75,7 @@
 <div class="modal fade" id="addMenuModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content border-0 shadow">
-            <form method="POST" action="{{ route('menus.store') }}">
+            <form method="POST" action="{{ route('menu.store') }}">
                 @csrf
                 <div class="modal-header border-0 pb-0">
                     <h5 class="modal-title fw-bold">Add Menu Item</h5>
