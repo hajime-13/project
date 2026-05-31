@@ -12,7 +12,7 @@
                 <i class="bi bi-pencil me-2 text-primary"></i>Edit — {{ $menu->name }}
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('menus.update', $menu) }}">
+                <form method="POST" action="{{ route('menu.update', $menu) }}">
                     @csrf @method('PUT')
 
                     <div class="row g-3">
@@ -54,7 +54,7 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-check-lg me-1"></i>Save Changes
                         </button>
-                        <a href="{{ route('menus.index') }}" class="btn btn-light">Cancel</a>
+                        <a href="{{ route('menu.index') }}" class="btn btn-light">Cancel</a>
                     </div>
                 </form>
             </div>
