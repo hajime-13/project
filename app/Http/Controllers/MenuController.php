@@ -10,8 +10,8 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menus = Menu::where('user_id', Auth::id())->latest()->get();
-        return view('menus.index', compact('menus'));
+        $menu = Menu::where('user_id', Auth::id())->latest()->get();
+        return view('menu.index', compact('menu'));
     }
 
     public function store(Request $request)
@@ -33,7 +33,7 @@ class MenuController extends Controller
             'availability' => $request->availability,
         ]);
 
-        return redirect()->route('menus.index')
+        return redirect()->route('menu.index')
             ->with('toast_success', '"' . $request->name . '" added to menu successfully.');
     }
 
@@ -42,7 +42,7 @@ class MenuController extends Controller
         if ($menu->user_id !== Auth::id()) {
             abort(403);
         }
-        return view('menus.edit', compact('menu'));
+        return view('menu.edit', compact('menu'));
     }
 
     public function update(Request $request, Menu $menu)
@@ -61,7 +61,7 @@ class MenuController extends Controller
 
         $menu->update($request->only('name', 'category', 'price', 'description', 'availability'));
 
-        return redirect()->route('menus.index')
+        return redirect()->route('menu.index')
             ->with('toast_success', '"' . $menu->name . '" updated successfully.');
     }
 
@@ -72,7 +72,7 @@ class MenuController extends Controller
         }
         $name = $menu->name;
         $menu->delete();
-        return redirect()->route('menus.index')
+        return redirect()->route('menu.index')
             ->with('toast_success', '"' . $name . '" removed from menu.');
     }
 }
